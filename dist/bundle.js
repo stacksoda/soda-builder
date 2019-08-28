@@ -81,32 +81,32 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./helloworld.js":
-/*!***********************!*\
-  !*** ./helloworld.js ***!
-  \***********************/
+/***/ "./src/helloworld.js":
+/*!***************************!*\
+  !*** ./src/helloworld.js ***!
+  \***************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction helloworld() {\n    document.write('Hello world!');\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (helloworld);\n\n\n//# sourceURL=webpack:///./helloworld.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nfunction helloworld() {\n    document.write('Hello world!');\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (helloworld);\n\n\n//# sourceURL=webpack:///./src/helloworld.js?");
 
 /***/ }),
 
-/***/ "./index.js":
-/*!******************!*\
-  !*** ./index.js ***!
-  \******************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _helloworld__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helloworld */ \"./helloworld.js\");\n\n\ndocument.write('index content');\n\nObject(_helloworld__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _helloworld__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helloworld */ \"./src/helloworld.js\");\n\n\ndocument.write('use webpack.config.js ~~~');\n\nObject(_helloworld__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
