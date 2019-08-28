@@ -1,0 +1,23 @@
+{
+  "name": "soda-builder",
+  "version": "1.0.0",
+  "description": "webpack builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacksoda/soda-builder.git"
+  },
+  "author": "soda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stacksoda/soda-builder/issues"
+  },
+  "homepage": "https://github.com/stacksoda/soda-builder#readme",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}
