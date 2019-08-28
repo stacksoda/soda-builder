@@ -4,7 +4,8 @@
   "description": "webpack builder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --entry=./index.js --output-filename=bundle.js --mode=development"
   },
   "repository": {
     "type": "git",
