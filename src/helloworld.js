@@ -1,4 +1,5 @@
-function helloworld() {
+const helloworld = () => {
+    debugger;
     document.write('Hello world!');
 }
 

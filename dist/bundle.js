@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction helloworld() {\n    document.write('Hello world!');\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (helloworld);\n\n\n//# sourceURL=webpack:///./src/helloworld.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar helloworld = function helloworld() {\n  debugger;\n  document.write('Hello world!');\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (helloworld);\n\n//# sourceURL=webpack:///./src/helloworld.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction helloworld() {\n    
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _helloworld__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helloworld */ \"./src/helloworld.js\");\n\n\ndocument.write('use webpack.config.js ~~~');\n\nObject(_helloworld__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _helloworld__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helloworld */ \"./src/helloworld.js\");\n\ndocument.write('use webpack.config.js ~~~');\nObject(_helloworld__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
