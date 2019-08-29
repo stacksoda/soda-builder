@@ -40,3 +40,22 @@ module.exports = {
   ]
 }
 ```
+## 解析CSS
+`npm i -D style-loader css-loader`
+
+### webpack.config.js
+``` javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+}
+```
