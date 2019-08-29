@@ -59,3 +59,69 @@ module.exports = {
   }
 }
 ```
+# 解析Less
+``` bash
+npm i -D less less-loader
+```
+``` javascript
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+            }
+        ]
+    }
+}
+```
+
+# 解析图片和字体
+`npm i -D file-loader` 
+
+### webpack.config.js
+
+``` javascript
+module.exports = {
+
+    module: {
+        rules: [
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
+            {
+                test: /\.(woff|woff2|eof|ttf|otf)$/
+                use: [
+                    'file-loader'
+                ]
+            }
+        ]
+    }
+
+}
+```
+# 小资源转base64
+使用url-loader可以处理图片和字体，可以设置小资源自动转 base64
+
+``` javascript
+module.eports = {
+    module: {
+        rules: [{
+            test: /\.(png|svg|jpg|gif)$/,
+            use: {
+                loader: 'url-loader',
+                options: {
+                    limit: 10240
+                }
+            }
+        }]
+    }
+}
+```
