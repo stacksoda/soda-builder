@@ -28,3 +28,15 @@ module.exports = {
   mode: 'development'
 };
 ```
+## 解析JSX
+`npm i -D @babel/preset-react`
+
+### .babelrc
+``` json
+{
+  "presets": [
+    ...,
+    "@babel/preset-react"
+  ]
+}
+```

@@ -1,5 +1,15 @@
-import helloworld from './helloworld';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-document.write('use webpack.config.js ~~~');
+class App extends React.Component {
+    render() {
+        return (
+            <div>React App</div>
+        )
+    }
+}
 
-helloworld();
+ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+)
