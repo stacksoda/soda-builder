@@ -16,7 +16,15 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
-      }
+      },
+      {
+        test: /\.less$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'less-loader'
+        ]
+    }
     ]
   },
   mode: 'development'
