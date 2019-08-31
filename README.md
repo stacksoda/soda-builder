@@ -125,3 +125,32 @@ module.eports = {
     }
 }
 ```
+# css资源提取为单文件
+`npm i  mini-css-extract-plugin -D`
+
+该plugin需要在plugins中配置，然后使用MiniCssExtractPlugin中的loader对css进行打包，该loader与style-loader所做的工作互斥，因此使用该loader替换style-loader的工作
+
+``` javascript
+// 声明 MiniCssExtractPlugin 变量
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 在plugins中配置plugin的参数，并使用其中的loader替换style-loader
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin(
+      {
+        filename: '[name]_[contenthash:8].css'
+      }
+    )
+  ]
+}
+```

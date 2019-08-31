@@ -1,4 +1,6 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -20,7 +22,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'less-loader'
         ]
@@ -42,5 +44,10 @@ module.exports = {
     }
     ]
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name]_[contenthash:8].css'
+    })
+  ],
   mode: 'development'
 };
