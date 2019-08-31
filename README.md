@@ -154,3 +154,43 @@ module.exports = {
   ]
 }
 ```
+# CSS3属性前缀
+PostCSS插件 autoprefixer 自动补齐 CSS3 前缀 (根据can i use)
+`npm i postcss-loader autoprefixer -D`
+
+其中 autoprefixer 通过postcss-loader的配置引入
+`postcss.config.js`
+``` javascript
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+};
+```
+autoprefixer建议在package.json中配置参数
+`package.json`
+``` json
+{
+  // ...
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
+```
+``` javascript
+module: {
+  rules: [
+    // ...
+    {
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'postcss-loader',
+      ]
+    }
+  ]
+}
+```

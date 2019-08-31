@@ -15,8 +15,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader'
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
         ]
       },
       {
@@ -24,6 +25,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           'less-loader'
         ]
       },
@@ -39,7 +41,12 @@ module.exports = {
       {
         test: /\.(woff|woff2|eof|ttf|otf)$/,
         use: [
-            'file-loader'
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name]_[hash:8][ext]'
+              }
+            }
         ]
     }
     ]

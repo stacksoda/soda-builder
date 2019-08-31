@@ -1,0 +1,7 @@
+.container {
+  background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
