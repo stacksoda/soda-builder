@@ -226,3 +226,19 @@ module.exports = {
 
 }
 ```
+
+# 使用 clean-webpack-plugin
+
+默认会删除 output 制定的输出目录
+
+`npm i clean-webpack-plugin -D` 
+``` javascript 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
+
+module.exports = {
+    plugins: [
+        new CleanWebpackPlugin()
+    ]
+}
+
+``` 
