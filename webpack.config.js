@@ -26,7 +26,14 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'less-loader'
+          'less-loader',
+          {
+            loader: 'px2rem-loader',
+            options: {
+              remUnit: 75,
+              remPrecision: 8
+            }
+          }
         ]
       },
       {
@@ -41,14 +48,14 @@ module.exports = {
       {
         test: /\.(woff|woff2|eof|ttf|otf)$/,
         use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[name]_[hash:8][ext]'
-              }
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]_[hash:8][ext]'
             }
+          }
         ]
-    }
+      }
     ]
   },
   plugins: [

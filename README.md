@@ -194,3 +194,35 @@ module: {
   ]
 }
 ```
+
+# CSS px自动转rem
+rem相对页面根元素的相对大小，因此将px转换为rem会有更好的页面兼容性
+
+`npm i px2rem-loader -D`
+
+``` javascript
+module.exports = {
+
+    module: {
+        rules: [
+            {
+                test:/\.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,// 与 style-loader互斥
+                    {loader: 'css-loader', options: { importLoaders: 1 }},
+                    'less-loader',
+                    'postcss-loader',
+                    {
+                        loader: 'px2rem-loader',
+                        options: {
+                            remUnit: 75,
+                            remPrecision: 8
+                        }
+                    }
+                ]
+            },
+        ]
+    }
+
+}
+```
