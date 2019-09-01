@@ -299,3 +299,41 @@ module.exports = {
     ].concat(htmlWebpackPlugins)
 }
 ```
+# 命令行提示
+
+使用 friendly-errors-webpack-plugin
+`npm i -D friendly-errors-webpack-plugin` 
+
+``` javascript
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+module.exports = {
+    plugins: [
+        ...,
+        new FriendlyErrorsWebpackPlugin()
+    ]
+}
+```
+
+# 主动捕获并处理构建错误
+
+compiler在每次构建结束后会触发done这个hook
+
+process.exit主动处理构建报错
+
+``` javascript
+module.exports = {
+    ...,
+    plugins: [
+        ...,
+        function() {
+            // webpack4之前 this.plugin()
+            this.hooks.done.tap('done', (stats) => {
+                if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
+                    console.log('build error');
+                    process.exit(1);
+                }
+            })
+        }
+    ]
+}
+```
