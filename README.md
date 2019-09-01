@@ -242,3 +242,60 @@ module.exports = {
 }
 
 ``` 
+
+# 多页面打包和html模板
+## 安装glob
+`npm i -D glob`
+
+## 安装HTMLWebpackPlugin
+`npm i -D html-webpack-plugin`
+## 设置
+``` javascript
+const glob = require('glob');
+const setSPA = () => {
+  const entry = {};
+  const htmlWebpackPlugins = [];
+  const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
+  Object.keys(entryFiles)
+    .map((index) => {
+      // console.log('index', index)
+      const entryFile = entryFiles[index];
+      const match = entryFile.match(/src\/(.*)\/index\.js/);
+      const pageName = match && match[1];
+
+      entry[pageName] = entryFile;
+      htmlWebpackPlugins.push(
+        new HtmlWebpackPlugin({
+          template: path.join(__dirname, `src/${pageName}/index.html`),
+          filename: `${pageName}.html`,
+          // chunks: ['vendors', pageName],
+          chunks: [pageName],
+          inject: true,
+          minify: {
+            html5: true,
+            collapseWhitespace: true,
+            preserveLineBreaks: false,
+            minifyCSS: true,
+            minifyJS: true,
+            removeComments: false,
+          },
+        }),
+      );
+    })
+  console.log('entryFiles', entryFiles)
+
+  
+  return {
+    entry,
+    htmlWebpackPlugins
+  }
+}
+const {entry, htmlWebpackPlugins} = setSPA();
+
+module.exports = {
+    entry,
+    plugins: [
+        // ...
+    ].concat(htmlWebpackPlugins)
+}
+```
