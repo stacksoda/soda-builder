@@ -2,6 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 
 const setSPA = () => {
@@ -102,7 +103,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]_[contenthash:8].css'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new FriendlyErrorsWebpackPlugin(),
+    function() {
+      this.hooks.done.tap('done', (stats) => {
+        if (stats.compilation.error && stats.compilation.error.length && process.argv.indexOf('--watch') == -1) {
+          console.log('build error');
+          process.exit(1);
+        }
+      })
+    }
   ].concat(htmlWebpackPlugins),
-  mode: 'development'
+  mode: 'development',
+  stats: 'errors-only'
 };
